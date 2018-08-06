@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Project</title>
+	 <link rel="icon" href="icon.png">
+	<link rel="stylesheet" href="design.css">
+	<script src="topFun.js"></script>
+
+		<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div class="navbar">
+  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
+  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+  <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+</div>
+	<div class="main">
+		<h1> MyHotels.COM</h1>
+		<h2>PortFolio</h2>
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<!--Portfolio Gallery Grid-->	
+	<div class="row">
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+		<div class="column">
+			<img class="test" src="" width="100%">
+			<h3 class="title"></h3>
+			<p class="rent"></p>
+			<p class="rooms"></p>
+			<p class="space"></p>
+		</div>
+	</div>
+</div>
+</div>
+
+	<script>
+	/*fetch('api.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+  		var i=0;
+  			document.getElementById("title").innerHTML = myJson.data[i].title;
+			document.getElementById("rent").innerHTML =("$ "+myJson.data[i].advertisementPrice.baseRent).bold();
+			document.getElementById("rooms").innerHTML =myJson.data[i].realestateSummary.numberOfRooms+" rooms";
+			document.getElementById("space").innerHTML =myJson.data[i].realestateSummary.space+" m"+"2".sup();
+			document.getElementById("test").src = myJson.data[i].advertisementAssets[i].advertisementThumbnails.thumb_xs.url;
+	
+  });*/
+  fetch('api.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+		var k=0;
+		var j=0;
+	//alert(myJson.data[10].title);
+		for (var i=0;i < 10; i++) {
+			var list = document.getElementsByClassName("column")[j];
+			j++;
+		   	 list.getElementsByClassName("title")[k].innerHTML = myJson.data[i].title;
+			list.getElementsByClassName("rent")[k].innerHTML =("$ "+myJson.data[i].advertisementPrice.baseRent).bold();
+			list.getElementsByClassName("rooms")[k].innerHTML =myJson.data[i].realestateSummary.numberOfRooms+" rooms";
+			list.getElementsByClassName("space")[k].innerHTML =myJson.data[i].realestateSummary.space+" m"+"2".sup();
+			list.getElementsByClassName("test")[k].src = myJson.data[i].advertisementAssets[i].advertisementThumbnails.thumb_xs.url;
+		
+		}
+	
+  });
+</script>
+</body>
+</html>
